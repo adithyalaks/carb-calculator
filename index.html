@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Cycling Carbohyrdate Calculator</title>
+        <script type="text/javascript" src="scripts/carb-calculator.js"></script>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f4f4f4;
+            }
+            h2 {
+                color: #333;
+            }
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            label {
+                display: block;
+                margin-bottom: 10px;
+                font-weight: bold;
+            }
+            select, input[type="submit"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            #results {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                margin-top: 20px;
+            }
+            #results p {
+                margin: 10px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <p>Input the intensity and duration you plan to ride for to obtain recommendations on the amount of carbohydrates you
+            should consume, as well as the sources and some other fuelling advice!
+        </p>
+        <h2>Inputs</h2>
+        <form>
+            <label for="intensity">Intensity:</label>
+            <select name="Intensity" id="intensity" selected=0>
+                <option value=0>Recovery</option>
+                <option value=1>Endurance (Zone 2)</option>
+                <option value=2>Moderate</option>
+                <option value=3>Hard Workout or Race</option>
+            </select><br>
+            <label for="duration">Duration:</label>
+            <select name="Duration" id="duration" selected=0>
+                <option value=0>0-30 minutes</option>
+                <option value=1>30-60 minutes</option>
+                <option value=2>1-1.5 hours</option>
+                <option value=3>1.5-2 hours</option>
+                <option value=4>2-2.5 hours</option>
+                <option value=5>2.5-3 hours</option>
+                <option value=6>3-4 hours</option>
+                <option value=7>4+ hours</option>
+            </select><br>
+            <input type="button" value="Submit" onclick="calculateCarbs();">
+        </form>
+        <br><br>
+        <h2>Results</h2>
+        <div id="results">
+            <p><strong>Carbohydrates (grams/hour):</strong> <span id="carb_amount"></span></p>
+            <p><strong>Glucose to Fructose Ratio:</strong> <span id="gluc_fruc_ratio"></span></p>
+            <p><strong>Source of carbohydrates:</strong> <span id="source"></span></p>
+            <p><strong>Gut Training Advice:</strong> <span id="gut_training"></span></p>
+        </div>
+    </body>
+</html>
