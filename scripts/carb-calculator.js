@@ -1,3 +1,5 @@
+// Copyright 2025 Adithya Lakshminarayanan, Nicolas Kleban
+// All rights reserved
 const values = [
     [0, 15, 30, 45, -1, -1, -1, -1],
     [0, 15, 30, 30, 45, 45, 65, 90],
