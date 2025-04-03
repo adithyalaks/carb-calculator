@@ -22,6 +22,10 @@ const UNDER_60 = "Unlikely risk of GI distress; no gut training required";
 const BETWEEN_60_90 = "Moderate risk of GI distress; consider gut training";
 const OVER_90 = "High risk of GI distress; gut training is essential";
 
+
+// Carbs per bar
+const CARBS_PER_BAR = 25;
+
 function calculateCarbsNeeded(intensity, duration) {
     return values[intensity][duration];
 }
@@ -36,6 +40,10 @@ function glucose_fructose_ratios(carb_per_hour) {
     else {
         return GLUCOSE_FRUCTOSE_TWO_ONE;
     }
+}
+
+function num_bars(carb_per_hour) {
+    return Math.ceil(carb_per_hour / CARBS_PER_BAR);
 }
 
 function carb_sources(intensity, duration) {
@@ -78,7 +86,7 @@ function calculateCarbs() {
     }
 
     // Set glucose/fructose ratios
-    document.getElementById('gluc_fruc_ratio').innerHTML = glucose_fructose_ratios(carbs);
+    document.getElementById('num_bars').innerHTML = num_bars(carbs);
 
     // Set carb sources
     document.getElementById('source').innerHTML = carb_sources(intensity, duration);
